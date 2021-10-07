@@ -1,3 +1,14 @@
+This is a forked version adding several enhancements:<br>
+- New font structure and functions.<br>
+Fonts no longer require sequential characters, now they can have single chars and ranges, also support UTF8.<br>
+This allows font stripping, saving a lot of space.<br>
+- Several internal optimizations. Add triangle drawing, bmp acceleration (So the bmp data can be send using DMA).<br>
+- 1BPP fonts can be drawn in transparent mode.<br>
+- If acceleration is enabled, font pixels are packed and only drawed when a different color is found.<br>
+This greatly enhances speed, removing a lot of overhead, specially when drawing big fonts.<br>
+
+
+
 # Introduction
 ## What is µGUI?
 µGUI is a free and open source graphic library for embedded systems. It is platform-independent
@@ -13,9 +24,8 @@ consists of three files: **ugui.c**, **ugui.h** and **ugui_config.h**.
 * µGUI supports any touch screen technology (e.g. AR, PCAP)
 * µGUI supports windows and objects (e.g. button, textbox)
 * µGUI supports platform-specific hardware acceleration
-* 16 different fonts available
-* cyrillic fonts supported
-* TrueType font converter available ([https://github.com/AriZuu](https://github.com/AriZuu))
+* Custom fonts can be added easily, several included by default, including cyrillic.
+* TrueType font converter available: [ttf2uGUI](https://github.com/deividalfa/ttf2ugui)
 * integrated and free scalable system console
 * basic geometric functions (e.g. line, circle, frame etc.)
 * can be easily ported to almost any microcontroller system
