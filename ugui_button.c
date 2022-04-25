@@ -439,7 +439,7 @@ static void _UG_ButtonUpdate(UG_WINDOW* wnd, UG_OBJECT* obj)
    UG_BUTTON* btn;
    UG_AREA a;
    UG_TEXT txt;
-   UG_U8 d;
+   UG_U8 d,o=0;
 
    /* Get object-specific data */
    btn = (UG_BUTTON*)(obj->data);
@@ -464,7 +464,10 @@ static void _UG_ButtonUpdate(UG_WINDOW* wnd, UG_OBJECT* obj)
          obj->state |= OBJ_STATE_UPDATE;
          obj->event = OBJ_EVENT_RELEASED;
       }
-      obj->touch_state &= ~OBJ_TOUCH_STATE_CHANGED;
+      obj->touch_state &= ~OBJ_TOUCH_STATE_CHANGED;       
+#ifdef BUTTON_TXT_DEPRESS
+      obj->state |=  OBJ_STATE_REDRAW;
+#endif
    }
    #endif
 
@@ -515,10 +518,10 @@ static void _UG_ButtonUpdate(UG_WINDOW* wnd, UG_OBJECT* obj)
                UG_FillFrame(obj->a_abs.xs+d, obj->a_abs.ys+d, obj->a_abs.xe-d, obj->a_abs.ye-d, txt.bc);
 
             /* Draw button text */
-            txt.a.xs = obj->a_abs.xs+d;
-            txt.a.ys = obj->a_abs.ys+d;
-            txt.a.xe = obj->a_abs.xe-d;
-            txt.a.ye = obj->a_abs.ye-d;
+            txt.a.xs = obj->a_abs.xs+d+o;
+            txt.a.ys = obj->a_abs.ys+d+o;
+            txt.a.xe = obj->a_abs.xe-d+o;
+            txt.a.ye = obj->a_abs.ye-d+o;
             txt.align = btn->align;
             txt.font = btn->font;
             txt.h_space = 2;
