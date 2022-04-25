@@ -12,6 +12,9 @@
  #define UGUI_USE_COLOR_RGB565   // RGB = 0bRRRRRGGGGGGBBBBB
 // #define UGUI_USE_COLOR_BW   // BW = 0x00|0xFF
 
+/* Depress text on touch, giving additional visual feedback, but requires full button redraw  */
+#define BUTTON_TXT_DEPRESS
+
 /* Enable Touch Support */
 // #define UGUI_USE_TOUCH
 
