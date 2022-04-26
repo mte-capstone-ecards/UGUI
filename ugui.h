@@ -447,6 +447,7 @@ UG_S16 UG_GetYDim( void );
 void UG_FontSetHSpace( UG_U16 s );
 void UG_FontSetVSpace( UG_U16 s );
 void UG_FontSetTransparency( UG_U8 t );
+UG_U8 UG_FontGetTransparency( void );
 
 /* Miscellaneous functions */
 void UG_WaitForUpdate( void );
