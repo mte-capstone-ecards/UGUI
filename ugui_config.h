@@ -12,17 +12,14 @@
  #define UGUI_USE_COLOR_RGB565   // RGB = 0bRRRRRGGGGGGBBBBB
 // #define UGUI_USE_COLOR_BW   // BW = 0x00|0xFF
 
-/* Depress text on touch, giving additional visual feedback, but requires full button redraw  */
-#define BUTTON_TXT_DEPRESS
-
 /* Enable Touch Support */
-// #define UGUI_USE_TOUCH
+ #define UGUI_USE_TOUCH
 
 /* Enable Console Support */
-// #define UGUI_USE_CONSOLE
+ #define UGUI_USE_CONSOLE
 
 /* If you only use standard ASCII, disabling this will save some resources */
-// #define UGUI_USE_UTF8
+#define UGUI_USE_UTF8
 
 /* Enable needed fonts */
 #define UGUI_USE_FONT_4X16
@@ -76,6 +73,7 @@
 
 typedef uint8_t      UG_U8;
 typedef int8_t       UG_S8;
+typedef size_t       UG_SIZE;
 typedef uint16_t     UG_U16;
 typedef int16_t      UG_S16;
 typedef uint32_t     UG_U32;

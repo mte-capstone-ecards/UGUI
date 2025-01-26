@@ -103,6 +103,9 @@ extern UG_FONT FONT_arial_12X15[];
 #ifdef UGUI_USE_FONT_arial_12X15_CYRILLIC
 extern UG_FONT FONT_arial_12X15_CYRILLIC[];
 #endif
+#ifdef UGUI_USE_FONT_arial_15X16
+extern UG_FONT FONT_arial_15X16[];
+#endif
 #ifdef UGUI_USE_FONT_arial_16X18
 extern UG_FONT FONT_arial_16X18[];
 #endif

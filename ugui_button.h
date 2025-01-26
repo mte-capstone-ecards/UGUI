@@ -27,6 +27,9 @@ typedef struct
    char* str;
 }UG_BUTTON;
 
+/* Depress text on touch, giving additional visual feedback, but requires full button redraw  */
+#define BUTTON_TXT_DEPRESS
+
 /* Object type */
 #define OBJ_TYPE_BUTTON                               1
 

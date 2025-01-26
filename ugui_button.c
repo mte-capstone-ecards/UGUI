@@ -232,7 +232,7 @@ UG_RESULT UG_ButtonSetStyle( UG_WINDOW* wnd, UG_U8 id, UG_U8 style )
    else
    {
       btn->style &= ~BTN_STYLE_3D;
-   }
+   }   
    obj->state |= OBJ_STATE_UPDATE | OBJ_STATE_REDRAW;
 
    return UG_RESULT_OK;
@@ -464,7 +464,7 @@ static void _UG_ButtonUpdate(UG_WINDOW* wnd, UG_OBJECT* obj)
          obj->state |= OBJ_STATE_UPDATE;
          obj->event = OBJ_EVENT_RELEASED;
       }
-      obj->touch_state &= ~OBJ_TOUCH_STATE_CHANGED;       
+      obj->touch_state &= ~OBJ_TOUCH_STATE_CHANGED;
 #ifdef BUTTON_TXT_DEPRESS
       obj->state |=  OBJ_STATE_REDRAW;
 #endif
@@ -500,6 +500,8 @@ static void _UG_ButtonUpdate(UG_WINDOW* wnd, UG_OBJECT* obj)
 
             if( btn->state & BTN_STATE_PRESSED )
             {
+              /* o is the text offset, to provide a visual effect when pressed */
+              o=1;
                /* "toggle" style? */
                if( btn->style & BTN_STYLE_TOGGLE_COLORS )
                {
