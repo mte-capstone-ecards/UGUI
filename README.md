@@ -1,13 +1,14 @@
 This is a forked version adding several enhancements:<br>
-- Code reworked using [0x3333](https://github.com/0x3333/UGUI) UGUI fork.
+- Code reworked using [0x3333](https://github.com/0x3333/UGUI) UGUI fork.<br>
 - New font structure and functions.<br>
-Fonts no longer require sequential characters, now they can have single chars and ranges, also support UTF8.<br>
-This allows font stripping, saving a lot of space.<br>
-- Add triangle drawing
+- Font stripping:  Fonts now can have any single chars and/or ranges.<br>
+This allows to add only the required chars to your project, greatly reducing the memory footprint.<br>
+- Full UTF8 support, fonts can store any character from the entire Unicode set (0-65535).<br>
+- Add triangle drawing.<br>
 - Add bmp acceleration (So the bmp data can be send using DMA), or use FILL_AREA driver if available.<br>
-- Add 1BPP bmp drawing.
+- Add 1BPP bmp drawing.<br>
 - 1BPP fonts can be drawn in transparent mode.<br>
-- Modify FILL_AREA diver to allow passing multiple pixels at once.
+- Modify FILL_AREA diver to allow passing multiple pixels at once.<br>
 - Font pixels are packed and only drawed when a different color is found.<br>
   This greatly enhances speed, removing a lot of overhead, specially when drawing big fonts.<br>
 
