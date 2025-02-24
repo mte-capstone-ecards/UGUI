@@ -9,7 +9,7 @@ set(LIB_SOURCES ${LIB_SOURCES}
     # ${LIB_DIR}/ugui_button.c
     # ${LIB_DIR}/ugui_checkbox.c
     # ${LIB_DIR}/ugui_image.c
-    # ${LIB_DIR}/ugui_textbox.c
+    ${LIB_DIR}/ugui_textbox.c
     # ${LIB_DIR}/ugui_progress.c
     # ${LIB_DIR}/ugui_sim.c
     # ${LIB_DIR}/ugui_sim_x11.c
