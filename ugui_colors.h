@@ -304,6 +304,7 @@
 
 #define C_BLACK                      0x00
 #define C_WHITE                      0xFF
+#define C_NONE                       0xAA
 
 #endif
 

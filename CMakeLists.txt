@@ -11,7 +11,9 @@ set(LIB_SOURCES ${LIB_SOURCES}
     ${LIB_DIR}/ugui_image.c
     ${LIB_DIR}/ugui_textbox.c
     ${LIB_DIR}/ugui_progress.c
-    ${LIB_DIR}/Fonts/font_6x10.c
+    ${LIB_DIR}/Fonts/font_7x12.c
+    ${LIB_DIR}/Fonts/font_8x12.c
+    ${LIB_DIR}/Fonts/font_12x20.c
 )
 
 set(LIB_INCLUDES ${LIB_INCLUDES}

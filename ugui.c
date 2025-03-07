@@ -116,6 +116,9 @@ void UG_FillScreen( UG_COLOR c )
 
 void UG_FillFrame( UG_S16 x1, UG_S16 y1, UG_S16 x2, UG_S16 y2, UG_COLOR c )
 {
+   if (c == C_NONE)
+      return;
+
    UG_S16 n,m;
 
    if ( x2 < x1 )
@@ -410,7 +413,7 @@ void UG_DrawLine( UG_S16 x1, UG_S16 y1, UG_S16 x2, UG_S16 y2, UG_COLOR c )
          drawy += sgndy;
          gui->device->pset(drawx, drawy,c);
       }
-   }  
+   }
 }
 
 
@@ -590,7 +593,7 @@ void UG_ConsolePutString( char* str )
          str++;
          continue;
       }
-      
+
       cw = _UG_GetCharData(chr, NULL);
       if(cw==-1){
         continue;
@@ -1125,6 +1128,7 @@ static void _UG_HandleEvents( UG_WINDOW* wnd )
 
    /* Handle window-related events */
    //ToDo
+   wnd->cb( NULL );
 
    /* Handle object-related events */
    msg.type = MSG_TYPE_OBJECT;
@@ -1142,7 +1146,8 @@ static void _UG_HandleEvents( UG_WINDOW* wnd )
             msg.sub_id = obj->id;
             msg.event = obj->event;
 
-            wnd->cb( &msg );
+            if (wnd->cb != NULL)
+               wnd->cb( &msg );
 
             obj->event = OBJ_EVENT_NONE;
          }
@@ -1365,8 +1370,8 @@ void _UG_SendObjectPrerenderEvent( UG_WINDOW *wnd, UG_OBJECT *obj )
    msg.id = obj->type;
    msg.sub_id = obj->id;
    msg.src = obj;
-
-   wnd->cb(&msg);
+   if (wnd->cb != NULL)
+      wnd->cb( &msg );
 }
 #endif
 
@@ -1379,8 +1384,8 @@ void _UG_SendObjectPostrenderEvent( UG_WINDOW *wnd, UG_OBJECT *obj )
    msg.id = obj->type;
    msg.sub_id = obj->id;
    msg.src = obj;
-
-   wnd->cb(&msg);
+   if (wnd->cb != NULL)
+      wnd->cb( &msg );
 }
 #endif
 
@@ -1492,12 +1497,12 @@ void UG_Update( void )
 void UG_WaitForUpdate( void )
 {
    gui->state |= UG_STATUS_WAIT_FOR_UPDATE;
-   #ifdef UGUI_USE_MULTITASKING    
+   #ifdef UGUI_USE_MULTITASKING
    while ( (volatile UG_U8)gui->state & UG_STATUS_WAIT_FOR_UPDATE ){};
-   #endif    
-   #ifndef UGUI_USE_MULTITASKING    
+   #endif
+   #ifndef UGUI_USE_MULTITASKING
    while ( (UG_U8)gui->state & UG_STATUS_WAIT_FOR_UPDATE ){};
-   #endif    
+   #endif
 }
 
 void UG_DrawBMP( UG_S16 xp, UG_S16 yp, UG_BMP* bmp )
