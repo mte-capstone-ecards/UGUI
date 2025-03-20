@@ -13,6 +13,7 @@ set(LIB_SOURCES ${LIB_SOURCES}
     ${LIB_DIR}/ugui_progress.c
     ${LIB_DIR}/Fonts/font_7x12.c
     ${LIB_DIR}/Fonts/font_8x12.c
+    ${LIB_DIR}/Fonts/font_10x16.c
     ${LIB_DIR}/Fonts/font_12x20.c
 )
 
